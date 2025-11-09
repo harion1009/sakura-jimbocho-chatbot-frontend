@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // const facilitiesList = [ ... ]; // ⬅️ この変数は削除します
 
     // 🚨 RAGプロキシサーバーのURL (サーバーのポートに合わせて変更してください) 🚨
-    const PROXY_SERVER_URL = 'http://localhost:4000/rag-chat';
+    const PROXY_SERVER_URL = 'https://sakura-jimbocho-chatbot-rag-server.onrender.com/rag-chat';
 
     // メッセージをチャットボックスに追加する関数
     function appendMessage(sender, text) {
