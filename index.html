@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ホテル周辺施設案内ボット</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSSの追加またはstyle.cssに記述 */
+        #language-select-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+        }
+        .lang-button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .lang-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h1>ホテル周辺施設案内ボット</h1>
+
+        <div id="language-select-container">
+            <p>言語を選択してください / Please select a language:</p>
+            <button class="lang-button" data-lang="ja">日本語</button>
+            <button class="lang-button" data-lang="en">English</button>
+        </div>
+
+        <div id="chat-box" style="display: none;">
+            </div>
+        <div id="input-container" style="display: none;">
+            <input type="text" id="user-input" placeholder="質問を入力してください...">
+            <button id="send-btn">送信</button>
+        </div>
+        <div id="loading" style="display: none;">AIが考え中です...</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
