@@ -1,87 +1,179 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7f6;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    /* ⭐️ 背景色を柔らかな白に ⭐️ */
+    background-color: #F8F8F8; 
+    color: #333;
 }
 
 #chat-container {
-    width: 400px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    /* ⭐️ チャットコンテナの背景色を白または非常に明るいグレーに ⭐️ */
+    background-color: #FFFFFF; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    color: #333;
 }
 
 h1 {
-    background-color: #4CAF50;
-    color: white;
+    /* ⭐️ ヘッダーの背景色を落ち着いたローズピンクに ⭐️ */
+    background-color: #B28F9E; 
+    color: #FFFFFF;
     padding: 15px;
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.5em;
     text-align: center;
+    border-bottom: 1px solid #C0C0C0;
 }
 
 #chat-box {
-    height: 400px;
-    padding: 15px;
+    flex-grow: 1;
+    padding: 20px;
     overflow-y: auto;
-    border-bottom: 1px solid #ddd;
+    max-height: 400px;
+    background-color: #F4F4F4; /* チャット背景を明るいグレーに */
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 .message {
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 18px;
     max-width: 80%;
     word-wrap: break-word;
+    line-height: 1.5;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .user-message {
-    background-color: #dcf8c6;
+    /* ユーザーメッセージの背景色を薄いピンクに */
+    background-color: #EEDEE6; 
+    color: #333;
     margin-left: auto;
+    border-bottom-right-radius: 4px;
     text-align: right;
 }
 
 .bot-message {
-    background-color: #e5e5ea;
+    /* ボットメッセージの背景色を白に */
+    background-color: #FFFFFF; 
+    color: #333;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
     text-align: left;
 }
 
 #input-container {
     display: flex;
     padding: 15px;
-    border-top: 1px solid #eee;
+    background-color: #FFFFFF; /* 入力欄の背景も白 */
+    border-top: 1px solid #E0E0E0;
 }
 
 #user-input {
     flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
+    padding: 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 25px;
+    font-size: 1em;
+    outline: none;
+    background-color: #F8F8F8;
+    color: #333;
     margin-right: 10px;
-    font-size: 16px;
 }
 
-#send-btn {
-    background-color: #4CAF50;
+#user-input::placeholder {
+    color: #888;
+}
+
+#send-button {
+    /* ⭐️ ボタンの色はキーカラーの落ち着いたピンクに ⭐️ */
+    background-color: #B28F9E; 
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
+    border-radius: 25px;
+    padding: 12px 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1em;
+    transition: background-color 0.2s;
 }
 
-#send-btn:hover {
-    background-color: #45a049;
+#send-button:hover {
+    background-color: #9A7785; /* ホバーで少し暗く */
 }
 
-#loading {
+/* 言語選択コンテナのスタイル */
+#language-select-container {
+    padding: 20px;
     text-align: center;
+    background-color: #F8F8F8; /* 明るい背景 */
+    color: #333;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+#language-select-container p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.lang-button {
+    /* ⭐️ 言語選択ボタンもキーカラーのピンクに ⭐️ */
+    background-color: #C6A2AF; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.lang-button:hover {
+    background-color: #B28F9E;
+    transform: translateY(-2px);
+}
+
+.lang-button.selected {
+    background-color: #B28F9E; /* 選択されている言語ボタン */
+    font-weight: bold;
+}
+
+/* 注意書きボックスの調整 */
+#notice-box {
+    /* 色をホテルのテーマカラーに近い落ち着いたトーンに調整 */
+    background-color: #F9E7EE; /* 非常に薄いピンク */
+    color: #8D5A72; /* 落ち着いたピンクの文字色 */
+    border: 1px solid #EEDEE6;
     padding: 10px;
-    color: #4CAF50;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* ローディングスピナーの色もキーカラーに */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #B28F9E; 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
