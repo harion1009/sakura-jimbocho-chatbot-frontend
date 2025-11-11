@@ -27,11 +27,27 @@
         .lang-button:hover {
             background-color: #0056b3;
         }
+        #notice-box {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="chat-container">
         <h1>ホテル周辺施設案内ボット</h1>
+
+        <div id="notice-box">
+            📢 **【ベータ版について / About Beta】**<br>
+            当システムは現在試験運用中です。サーバーがスリープしている場合、**最初の応答までに10〜30秒ほど時間がかかる**ことがありますのでご了承ください。<br>
+            *This system is currently in beta testing. Please note that the **first response may take 10–30 seconds** if the server is waking up from sleep.*
+        </div>
 
         <div id="language-select-container">
             <p>言語を選択してください / Please select a language:</p>
