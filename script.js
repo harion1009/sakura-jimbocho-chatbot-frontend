@@ -20,14 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const PROXY_SERVER_URL = 'https://sakura-jimbocho-chatbot-rag-server.onrender.com/rag-chat';
 
     // メッセージをチャットボックスに追加する関数
-    function appendMessage(sender, text) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message');
-        messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-        messageDiv.textContent = text;
-        chatBox.appendChild(messageDiv);
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
+    // script.js の appendMessage 関数全体を以下に置き換える
+
+// メッセージをチャットボックスに追加する関数
+function appendMessage(sender, text) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+    messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+    
+    // ⭐️ ⭐️ 重要な変更点：改行コード(\n)をHTMLの<br>タグに置換 ⭐️ ⭐️
+    const formattedText = text.replace(/\n/g, '<br>');
+    
+    // 従来の textContent ではなく innerHTML を使用してHTMLタグを適用
+    messageDiv.innerHTML = formattedText; 
+    
+    chatBox.appendChild(messageDiv);
+    // 一番下までスクロール
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
 
     // ⭐️ RAGプロキシサーバーを呼び出す関数 ⭐️
     async function getBotResponse(userMessage) {
